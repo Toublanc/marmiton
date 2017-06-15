@@ -75,6 +75,11 @@ resetting:
             the Team.
 
 # Global strings
+nav-bar:
+    home : 'home'
+    recipe: 'recipe'
+    news: 'news'
+
 layout:
     logout: 'Log out'
     login: 'Log in'

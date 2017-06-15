@@ -70,6 +70,12 @@ resetting:
             Cordialement,
             L'équipe
 
+nav-bar:
+    home : 'acceuil'
+    recipe: 'recette'
+    news: 'actualité'
+
+
 layout:
     logout: Déconnexion
     login: Connexion
