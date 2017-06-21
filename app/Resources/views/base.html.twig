@@ -15,8 +15,9 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                 
-                    <a class="navbar-brand" href="{{ path("homepage") }}"></a>
-                    <img src="https://images.marmitoncdn.org/skins/1/common/images/logo-header.svg" class="m_logo_img" alt="marmiton.org" onerror="this.removeAttribute('onerror'); this.src='https://images.marmitoncdn.org/skins/1/common/images/logo-header.png'">
+                    <a class="navbar-brand" href="{{ path("homepage") }}">
+                        <img class="m_logo_img" alt="marmiton.org" src='/web/img/logo.png'>
+                    </a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="#">{{ 'nav-bar.home' |trans({}, 'FOSUserBundle') }} </a></li>
