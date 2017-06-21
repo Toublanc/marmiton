@@ -78,3 +78,29 @@ fos_user:
     registration:
             form:
                 type: AppBundle\Form\RegistrationType
+
+hwi_oauth:
+  http_client:
+      verify_peer: false
+  connect:
+      confirmation: true
+      registration_form: fos_user.registration.form.factory
+  firewall_names: [main]
+  fosub:
+      username_iterations: 30
+      properties:
+          facebook: facebookID
+          google: googleID
+  resource_owners:
+      # Facebook
+      facebook:
+          type:                facebook
+          client_id:           1898437923701161
+          client_secret:       485e345ef09a64ee894199e64d3e8fb7
+          scope:               "email"
+      # Google
+      google:
+          type:                google
+          client_id:           416200674303-4ln69ivp1gfquq4qakdu1upqvhrk2cai.apps.googleusercontent.com
+          client_secret:       oDBZQ80ALIfSK5Hjc3JsmWbs
+          scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
