@@ -14,13 +14,15 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ path("homepage") }}">Symfony Test</a>
+                
+                    <a class="navbar-brand" href="{{ path("homepage") }}"></a>
+                    <img src="https://images.marmitoncdn.org/skins/1/common/images/logo-header.svg" class="m_logo_img" alt="marmiton.org" onerror="this.removeAttribute('onerror'); this.src='https://images.marmitoncdn.org/skins/1/common/images/logo-header.png'">
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="#">{{ 'nav-bar.home' |trans({}, 'FOSUserBundle') }} </a></li>
                     <li><a href="#">{{ 'nav-bar.recipe' |trans({}, 'FOSUserBundle') }} </a></li>
                     <li><a href="#">{{ 'nav-bar.news' |trans({}, 'FOSUserBundle') }}</a></li>
-                </ul>
+                 </ul>
                 <div class="nav navbar-nav navbar-right">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <a href="{{ path('fos_user_security_logout') }}">

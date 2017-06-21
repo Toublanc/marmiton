@@ -22,7 +22,7 @@ nav.navbar {
     position: relative;
     padding: 0;
     height: 70px;
-    background: #3cbfe0 !important;
+    background: #F47321 !important;
     color: #fff !important;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -372,4 +372,9 @@ table tbody input {
 
 .icon-size {
     font-size: 15px;
+}
+
+.m_logo_img {
+    width: 177px;
+    height: 35px;
 }
