@@ -22,11 +22,24 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string")
      */
-    protected $nom;
+    protected $name;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $facebookID;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $googleID;
+
 
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
+
+    
 }
