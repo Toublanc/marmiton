@@ -354,6 +354,16 @@ table tbody p {
     margin: 0px;
 }
 
+.btn-info {
+    color: #fff;
+    background-color: #F47321;
+    border-color: #F47321;
+}
+
+.img-circle {
+    height: 100px;
+}
+
 .table>tbody>tr>td {
     padding: 6px;
     vertical-align: middle;
