@@ -21,6 +21,9 @@ profile:
     show:
         username: Username
         email: Email
+        choice: Your language is
+        language1 : English
+        langue2 : French
     edit:
         submit: Update
     flash:
@@ -73,6 +76,10 @@ resetting:
 
             Regards,
             the Team.
+
+network:
+    facebook : "Login with Facebook"
+    google : "Login with Google"
 
 # Global strings
 nav-bar:

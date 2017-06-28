@@ -4,8 +4,14 @@
 <div class="col-md-4 col-sm-12 center col-md-offset-4" style="margin-top: 250px">
         <div class="content-box">
             <div class="content">
-                <div class="form-login">
+            <div class="text-center">
+            <a class="loginBtn loginBtn--facebook" href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
+            {{ 'network.facebook' |trans({}, 'FOSUserBundle') }}</a>
+            <div class="form-login">
+            <a class="loginBtn loginBtn--google" href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}">{{ 'network.google' |trans({}, 'FOSUserBundle') }}</a>
+            <div class="form-login">
 {% include "@FOSUser/Registration/register_content.html.twig" %}
+       </div>
        </div>
             </div>
         </div>
