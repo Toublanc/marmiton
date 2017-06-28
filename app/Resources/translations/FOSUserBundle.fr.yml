@@ -74,6 +74,7 @@ nav-bar:
     home : 'acceuil'
     recipe: 'recette'
     news: 'actualité'
+    profil: 'profil'
 
 
 layout:

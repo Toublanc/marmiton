@@ -23,7 +23,7 @@ google_login:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
-app_home:
-    path:      /
-    defaults:
-        _controller: AppBundle:home:index
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+    

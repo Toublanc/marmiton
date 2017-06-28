@@ -76,9 +76,10 @@ resetting:
 
 # Global strings
 nav-bar:
-    home : 'home'
-    recipe: 'recipe'
-    news: 'news'
+    home : 'Home'
+    recipe: 'Recipe'
+    news: 'News'
+    profil: 'Profile'
 
 layout:
     logout: 'Log out'
