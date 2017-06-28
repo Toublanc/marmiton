@@ -45,7 +45,7 @@ nav.navbar {
 }
 
 .navbar-brand {
-    padding: 25px 25px;
+    padding: 15px 25px;
     color: #fff;
 }
 
@@ -352,6 +352,16 @@ td.info-color.sorting_1 a {
 table tbody p {
     font-size: 14px;
     margin: 0px;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #F47321;
+    border-color: #F47321;
+}
+
+.img-circle {
+    height: 100px;
 }
 
 .table>tbody>tr>td {

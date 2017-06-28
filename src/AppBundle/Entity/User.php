@@ -20,14 +20,20 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $facebookID;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $googleID;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Receipts", mappedBy="User")
+     * @var Receipts[]
+     */
+    private $receipts;
 
 
     public function __construct()
@@ -83,5 +89,39 @@ class User extends BaseUser
     public function getGoogleID()
     {
         return $this->googleID;
+    }
+
+    /**
+     * Add receipt
+     *
+     * @param \AppBundle\Entity\Receipts $receipt
+     *
+     * @return User
+     */
+    public function addReceipt(\AppBundle\Entity\Receipts $receipt)
+    {
+        $this->receipts[] = $receipt;
+
+        return $this;
+    }
+
+    /**
+     * Remove receipt
+     *
+     * @param \AppBundle\Entity\Receipts $receipt
+     */
+    public function removeReceipt(\AppBundle\Entity\Receipts $receipt)
+    {
+        $this->receipts->removeElement($receipt);
+    }
+
+    /**
+     * Get receipts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReceipts()
+    {
+        return $this->receipts;
     }
 }
