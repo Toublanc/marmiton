@@ -74,10 +74,10 @@ resetting:
             L'équipe
 
 nav-bar:
-    home : 'acceuil'
-    recipe: 'recette'
-    news: 'actualité'
-    profil: 'profil'
+    home : 'Acceuil'
+    recipe: 'Recette'
+    news: 'Actualité'
+    profil: 'Profil'
 
 
 layout:
