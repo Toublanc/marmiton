@@ -26,7 +26,10 @@ class ReceiptsType extends AbstractType
                 'choices'  => array(
                     'Yes' => true,
                     'No' => false,
-                )));
+                )))
+            ->add('name_ingredient', TextType::class)
+            ->add('qte_ingredient', TextType::class)
+        ;
 
     }
 

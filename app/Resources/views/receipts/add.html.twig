@@ -20,6 +20,23 @@
                     {{ form_errors(form.is_veg) }}
                     {{ form_widget(form.is_veg, { attr: {}}) }}
                 </div>
+                <div class="form-group">
+                    <div class="ingredients">
+                        <div class="row line-ingredients">
+                            <div class="col-md-5">
+                                {{ form_errors(form.name_ingredient) }}
+                                {{ form_widget(form.name_ingredient, { attr: { class: 'form-control', 'placeholder': 'Quantité' }}) }}
+                            </div>
+                            <div class="col-md-5">
+                                {{ form_errors(form.qte_ingredient) }}
+                                {{ form_widget(form.qte_ingredient, { attr: { class: 'form-control', 'placeholder': 'Ingrédient' }}) }}
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-default" onclick="addItem($(this))">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <input class="btn btn-default" type="submit" value="Valider">
             </form>
 
