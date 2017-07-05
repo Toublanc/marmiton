@@ -23,7 +23,24 @@ google_login:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
+<<<<<<< HEAD
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
     prefix: /profile
     
+||||||| parent of 0298ed9... ADDED form
+app_home:
+    path:      /
+    defaults:
+        _controller: AppBundle:home:index
+=======
+app_home:
+    path:      /
+    defaults:
+        _controller: AppBundle:home:index
+
+new_receipt:
+    path: /new_receipt
+    defaults:
+        _controller: AppBundle:Receipts:add
+>>>>>>> 0298ed9... ADDED form

@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div class="container">
+
+            <form role="form" action="{{ path('new_receipt') }}" method="post">
+                <div class="form-group">
+                    {{ form_label(form.name) }}
+                    {{ form_errors(form.name) }}
+                    {{ form_widget(form.name, { attr: { class: 'form-control', 'placeholder': 'Nom de la recette' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.Type_dishes) }}
+                    {{ form_errors(form.Type_dishes) }}
+                    {{ form_widget(form.Type_dishes, { attr: { class: 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.is_veg) }}
+                    {{ form_errors(form.is_veg) }}
+                    {{ form_widget(form.is_veg, { attr: {}}) }}
+                </div>
+                <input class="btn btn-default" type="submit" value="Valider">
+            </form>
+
+        </div>
+    </div>
+{% endblock body %}
