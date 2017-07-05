@@ -8,7 +8,7 @@ fos_user_change_password: /profile/change-password   # FIXME
 fos_user_profile_edit: /profile/edit   # FIXME
 
 # Desc: /profile/
-fos_user_profile_show: /profile/   # FIXME
+fos_user_profile_show: /profile   # FIXME
 
 # Desc: /register/check-email
 fos_user_registration_check_email: /register/check-email   # FIXME
@@ -20,7 +20,7 @@ fos_user_registration_confirm: '/register/confirm/{token}'   # FIXME
 fos_user_registration_confirmed: /register/confirmed   # FIXME
 
 # Desc: /register/
-fos_user_registration_register: /register/   # FIXME
+fos_user_registration_register: /register   # FIXME
 
 # Desc: /resetting/check-email
 fos_user_resetting_check_email: /resetting/check-email   # FIXME
@@ -35,10 +35,10 @@ fos_user_resetting_reset: '/resetting/reset/{token}'   # FIXME
 fos_user_resetting_send_email: /resetting/send-email   # FIXME
 
 # Desc: /login_check
-fos_user_security_check: /login_check   # FIXME
+fos_user_security_check: '{_locale}/login_check'   # FIXME
 
 # Desc: /login
-fos_user_security_login: /login   # FIXME
+fos_user_security_login: '{_locale}/login'   # FIXME
 
 # Desc: /logout
 fos_user_security_logout: /logout   # FIXME
