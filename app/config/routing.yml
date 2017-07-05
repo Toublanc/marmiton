@@ -27,3 +27,17 @@ fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
     prefix: /profile
     
+app_home:
+    path:      /
+    defaults:
+        _controller: AppBundle:home:index
+
+new_receipt:
+    path: /new_receipt
+    defaults:
+        _controller: AppBundle:Receipts:add
+
+profile:
+    path: /profile
+    defaults:
+        _controller: AppBundle:Profile:add
