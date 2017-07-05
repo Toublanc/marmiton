@@ -1,6 +1,48 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <div class="container">
+        <div class="row user-infos cyruxx">
+            <div  <div class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ 'profile.show.title'|trans }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
+                                <img class="img-circle"
+                                     src="{{ asset('img/sensei.png')}}"
+                                     alt="User Pic">
+                            </div>                
+                            <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                                <strong>{{ 'profile.show.subtitle'|trans }}</strong><br>
+                                <table class="table table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td>{{ 'profile.show.username'|trans }}:</td>
+                                        <td>{{ user.username }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ 'profile.show.email'|trans }} : </td>
+                                        <td>{{ user.email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ 'profile.show.choice'|trans }} :</td>
+                                        <td>
+                                            <select name="select">
+                                                <option href="{{ path('setlocale', {'language': 'fr'}) }}" value="value1">{{ 'profile.show.language1'|trans }}</option>
+                                                <option value="value2">{{ 'profile.show.language2'|trans }}</option>
+                                            </select>
+                                            <a href="{{ path('setlocale', {'language': 'fr'}) }}">FR</a>
+                                            <a href="{{ path('setlocale', {'language': 'en'}) }}">EN</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </div>

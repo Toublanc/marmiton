@@ -17,6 +17,10 @@
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
          {% endif %}
                 <div class="form-group">
+                    <a class="loginBtn loginBtn--facebook" href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}">
+            {{ 'network.facebook' |trans({}, 'FOSUserBundle') }}</a>
+                </div>
+                <div class="form-group">
                     <input type="text" placeholder={{ 'security.login.username'|trans }} class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" />
                 </div>
                 <div class="form-group">

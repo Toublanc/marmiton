@@ -24,6 +24,15 @@ profile:
         choice: Your language is
         language1 : English
         langue2 : French
+        subtitle : Profile
+        title : User Information
+
+routing:
+    page:
+        profile: profile
+        
+
+
     edit:
         submit: Update
     flash:
@@ -86,7 +95,7 @@ nav-bar:
     home : 'Home'
     recipe: 'Recipe'
     news: 'News'
-    profil: 'Profile'
+    profile: 'Profile'
 
 layout:
     logout: 'Log out'
