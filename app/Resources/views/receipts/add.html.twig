@@ -21,25 +21,52 @@
                     {{ form_widget(form.is_veg, { attr: {}}) }}
                 </div>
                 <div class="form-group">
+                    {{ form_label(form.levelId) }}
+                    {{ form_errors(form.levelId) }}
+                    {{ form_widget(form.levelId, { attr: { class: 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.priceTypeId) }}
+                    {{ form_errors(form.priceTypeId) }}
+                    {{ form_widget(form.priceTypeId, { attr: { class: 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.prepareTime) }}
+                    {{ form_errors(form.prepareTime) }}
+                    {{ form_widget(form.prepareTime, { attr: { class: 'form-control', 'placeholder': 'xxx minutes' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.cookingTime) }}
+                    {{ form_errors(form.cookingTime) }}
+                    {{ form_widget(form.cookingTime, { attr: { class: 'form-control', 'placeholder': 'xxx minutes' }}) }}
+                </div>
+                <div class="form-group">
+                    {#{{ form_label(form.Type_cooking) }}#}
+                    {#{{ form_errors(form.Type_cooking) }}#}
+                    {#{{ form_widget(form.Type_cooking, { attr: { class: 'form-control' }}) }}#}
+                </div>
+                <div class="form-group">
                     <div class="ingredients">
+                        {{ form_label(form.ingredients) }}
                         <div class="row line-ingredients">
+                            {% for ingredient in form.ingredients %}
                             <div class="col-md-5">
-                                {{ form_errors(form.name_ingredient) }}
-                                {{ form_widget(form.name_ingredient, { attr: { class: 'form-control', 'placeholder': 'Quantité' }}) }}
+                                {{ form_errors(ingredient.qte) }}
+                                {{ form_widget(ingredient.qte, { attr: { class: 'form-control', 'placeholder': 'Quantité' }}) }}
                             </div>
                             <div class="col-md-5">
-                                {{ form_errors(form.qte_ingredient) }}
-                                {{ form_widget(form.qte_ingredient, { attr: { class: 'form-control', 'placeholder': 'Ingrédient' }}) }}
+                                {{ form_errors(ingredient.name) }}
+                                {{ form_widget(ingredient.name, { attr: { class: 'form-control', 'placeholder': 'Nom de l\'entité' }}) }}
+                                {% endfor %}
                             </div>
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-default" onclick="addItem($(this))">+</button>
+                                <button type="button" class="btn btn-default" onclick="addIngredient($(this))">+</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <input class="btn btn-default" type="submit" value="Valider">
             </form>
-
         </div>
     </div>
 {% endblock body %}

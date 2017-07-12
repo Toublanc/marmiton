@@ -2,10 +2,13 @@
 
 namespace AppBundle\Form\Type;
 
+use AppBundle\Entity\Ingredients;
 use AppBundle\Entity\Receipts;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,14 +26,36 @@ class ReceiptsType extends AbstractType
             ->add('is_veg', ChoiceType::class, array(
                 'expanded' => true,
                 'label' => 'Végétarien',
-                'choices'  => array(
+                'choices' => array(
                     'Yes' => true,
                     'No' => false,
                 )))
-            ->add('name_ingredient', TextType::class)
-            ->add('qte_ingredient', TextType::class)
-        ;
-
+            ->add('levelId', ChoiceType::class, array(
+                'label' => 'Difficulté',
+                'choices' => array(
+                    'Facile' => 0,
+                    'Moyen' => 1,
+                    'Difficile' => 2,
+                )))
+            ->add('priceTypeId', ChoiceType::class, array(
+                'label' => 'Catégorie de prix',
+                'choices' => array(
+                    'Bon marché' => 0,
+                    'Moyen' => 1,
+                    'Assé cher' => 2,
+                )))
+            ->add('prepareTime', IntegerType::class)
+            ->add('cookingTime', IntegerType::class)
+//            ->add('Type_cooking', EntityType::class, array(
+//                'class' => 'AppBundle:Type_cooking',
+//                'choice_label' => 'Type_cooking',
+//            ))
+            ->add('ingredients', CollectionType::class, array(
+                'entry_type' => IngredientsType::class,
+                'allow_add'    => true,
+                'allow_delete' => true,
+                'by_reference'=> false
+            ));
     }
 
     public function getName()
