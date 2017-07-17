@@ -46,16 +46,28 @@ class ReceiptsType extends AbstractType
                 )))
             ->add('prepareTime', IntegerType::class)
             ->add('cookingTime', IntegerType::class)
-//            ->add('Type_cooking', EntityType::class, array(
-//                'class' => 'AppBundle:Type_cooking',
-//                'choice_label' => 'Type_cooking',
-//            ))
+            ->add('type_cooking', EntityType::class, array(
+                'class' => 'AppBundle:Type_cooking',
+                'choice_label' => 'Type_cooking',
+            ))
+            ->add('qte', TextType::class, array(
+                'label' => 'Quantité',))
             ->add('ingredients', CollectionType::class, array(
                 'entry_type' => IngredientsType::class,
-                'allow_add'    => true,
+                'allow_add' => true,
                 'allow_delete' => true,
-                'by_reference'=> false
-            ));
+                'by_reference' => false,
+                'prototype' => true,
+            ))
+            ->add('stage', CollectionType::class, array(
+                'entry_type' => StageType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'prototype' => true,
+            ))
+            ->add('drink', TextType::class)
+            ->add('details', TextType::class);
     }
 
     public function getName()

@@ -41,13 +41,13 @@ class Receipts
     private $typeCooking;
 
     /**
-     * @ORM\OneToMany(targetEntity="Stage", mappedBy="Receipts")
+     * @ORM\OneToMany(targetEntity="Stage", mappedBy="Receipts", cascade={"persist"})
      * @var Stage[]
      */
     private $stage;
 
     /**
-     * @ORM\OneToMany(targetEntity="Ingredients", mappedBy="Receipts")
+     * @ORM\OneToMany(targetEntity="Ingredients", mappedBy="Receipts", cascade={"persist"})
      * @var Ingredients[]
      */
     private $ingredients;
@@ -82,23 +82,16 @@ class Receipts
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="prepare_time", type="datetime")
+     * @ORM\Column(name="prepare_time", type="integer")
      */
     private $prepareTime;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="cooking_time", type="datetime")
+     * @ORM\Column(name="cooking_time", type="integer")
      */
     private $cookingTime;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="cooking_type", type="integer")
-     */
-    private $cookingType;
 
     /**
      * @var int

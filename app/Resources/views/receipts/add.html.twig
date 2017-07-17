@@ -41,9 +41,14 @@
                     {{ form_widget(form.cookingTime, { attr: { class: 'form-control', 'placeholder': 'xxx minutes' }}) }}
                 </div>
                 <div class="form-group">
-                    {#{{ form_label(form.Type_cooking) }}#}
-                    {#{{ form_errors(form.Type_cooking) }}#}
-                    {#{{ form_widget(form.Type_cooking, { attr: { class: 'form-control' }}) }}#}
+                    {{ form_label(form.type_cooking) }}
+                    {{ form_errors(form.type_cooking) }}
+                    {{ form_widget(form.type_cooking, { attr: { class: 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.qte) }}
+                    {{ form_errors(form.qte) }}
+                    {{ form_widget(form.qte, { attr: { class: 'form-control' , 'placeholder': 'x personnes' }}) }}
                 </div>
                 <div class="form-group">
                     <div class="ingredients">
@@ -57,13 +62,39 @@
                             <div class="col-md-5">
                                 {{ form_errors(ingredient.name) }}
                                 {{ form_widget(ingredient.name, { attr: { class: 'form-control', 'placeholder': 'Nom de l\'entité' }}) }}
-                                {% endfor %}
                             </div>
+                            {% endfor %}
                             <div class="col-md-2">
                                 <button type="button" class="btn btn-default" onclick="addIngredient($(this))">+</button>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <div class="stage">
+                        {{ form_label(form.stage) }}
+                        <div class="row line-ingredients">
+                            {% for stage in form.stage %}
+                            <div class="col-md-10">
+                                {{ form_errors(stage.details) }}
+                                {{ form_widget(stage.details, { attr: { class: 'form-control', 'placeholder': 'Quantité' }}) }}
+                            </div>
+                            {% endfor %}
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-default" onclick="addStage($(this))">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.drink) }}
+                    {{ form_errors(form.drink) }}
+                    {{ form_widget(form.drink, { attr: { class: 'form-control', 'placeholder': 'Boisson pour accompagner' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.details) }}
+                    {{ form_errors(form.details) }}
+                    {{ form_widget(form.details, { attr: { class: 'form-control', 'placeholder': 'Remarque' }}) }}
                 </div>
                 <input class="btn btn-default" type="submit" value="Valider">
             </form>

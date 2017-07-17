@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Ingredients;
+use AppBundle\Entity\Stage;
 use AppBundle\Entity\Receipts;
 use AppBundle\Form\Type\ReceiptsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,11 +15,21 @@ class ReceiptsController extends Controller
     {
         $receipts = new Receipts();
         $receipts->addIngredient(new Ingredients());
+        $receipts->addStage(new Stage());
         $form = $this->createForm(ReceiptsType::class, $receipts, ['csrf_protection' => false]);
-        if ($request->isMethod('POST')) {
-            $data = $request->get('Receipts');
-            var_dump($data);
-            $form->handleRequest($request);
+        if ($form->handleRequest($request)->isValid()) {
+            var_dump($receipts);
+            $em = $this->get('doctrine.orm.entity_manager');
+            foreach ($receipts->getIngredients() as $ingredient) {
+                $ingredient->setReceipts($receipts);
+                $em->persist($ingredient);
+            }
+            $em->persist($receipts);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Recette enregistré avec success !');
+
+            return $this->redirect($this->generateUrl('new_receipt', array('id' => $receipts->getId())));
         }
 
         return $this->render('receipts/add.html.twig', [

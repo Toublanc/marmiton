@@ -62,4 +62,14 @@ class Type_cooking
     {
         return $this->name;
     }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getTypeCooking()
+    {
+        return $this->name;
+    }
 }
