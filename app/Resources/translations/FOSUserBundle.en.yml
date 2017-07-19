@@ -112,3 +112,20 @@ form:
     password_confirmation: 'Repeat password'
     new_password: 'New password'
     new_password_confirmation: 'Repeat new password'
+
+receipt:
+    is_veig : "Vegetarian"
+    name :  "Name"
+    dishes : "Type of dishes"
+    level : "Level"
+    price : "Price"
+    time : "Time to prepare"
+    time_cooking : "Time to cooking"
+    ingredients : "Inngredients"
+    quantity : "Quantity"
+    validate : "Validate"
+    type : "Type de cuisine"
+    qte : "Quantité pour"
+    details : "Details"
+    stage : "Stage"
+     name_receipt : "Name of receipt"
