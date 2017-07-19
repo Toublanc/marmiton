@@ -20,6 +20,9 @@ class ReceiptsController extends Controller
                 ->getRepository('AppBundle:Receipts')
                 ->find($request->get('id'));
         }
+        if ($receipts->getUser()->getId() != $this->getUser()->getId()) {
+            return $this->redirect($this->generateUrl('error'));
+        }
         $form = $this->createForm(ReceiptsType::class, $receipts, ['csrf_protection' => false]);
         if ($form->handleRequest($request)->isValid()) {
             var_dump($receipts);
@@ -55,6 +58,20 @@ class ReceiptsController extends Controller
 
         return $this->render('receipts/receipts.html.twig', [
             'receipts' => $receipts
+        ]);
+    }
+
+    public function readAction(Request $request)
+    {
+        $receipts = new Receipts();
+        if ($request->getMethod() === "GET" && $request->get('id')) {
+            $receipts = $this->get('doctrine.orm.entity_manager')
+                ->getRepository('AppBundle:Receipts')
+                ->find($request->get('id'));
+        }
+
+        return $this->render('receipts/read_receipt.html.twig', [
+            'receipt' => $receipts
         ]);
     }
 }

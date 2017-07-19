@@ -36,4 +36,12 @@ receipt:
     path: /receipt
     defaults: { _controller: AppBundle:Receipts:index }
 
+error:
+    path: /error
+    defaults: { _controller: AppBundle:Error:index }
+
+read_receipt:
+    path: /read_receipt
+    defaults: { _controller: AppBundle:Receipts:read }
+
 
