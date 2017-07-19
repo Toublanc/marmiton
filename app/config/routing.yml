@@ -32,4 +32,8 @@ new_receipt:
     path: /new_receipt
     defaults: { _controller: AppBundle:Receipts:add }
 
+receipt:
+    path: /receipt
+    defaults: { _controller: AppBundle:Receipts:index }
+
 

@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+    <div class="container" style="background-color: #fff;margin-top:80px">
+        <a href="{{ path("new_receipt") }}"><button type="button" class="btn btn-success">Créer une recette</button></a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type de plats</th>
+                <th>Type de cuisson</th>
+                <th>Difficulté</th>
+                <th>Editer</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for receipt in receipts %}
+                <tr>
+                    <td>{{ receipt.name }}</td>
+                    <td>{{ receipt.typeDishes.name }}</td>
+                    <td>{{ receipt.typeCooking.name }}</td>
+                    <td>{{ receipt.levelId }}</td>
+                    <td><a href="{{ path("new_receipt", { 'id': receipt.id }) }}">editer</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock body %}
