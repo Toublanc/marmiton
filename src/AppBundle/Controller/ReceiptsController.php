@@ -15,6 +15,11 @@ class ReceiptsController extends Controller
     public function addAction(Request $request)
     {
         $receipts = new Receipts();
+        if ($request->getMethod() === "GET") {
+            $receipts = $this->get('doctrine.orm.entity_manager')
+                ->getRepository('AppBundle:Receipts')
+                ->find($request->get('id'));
+        }
         $form = $this->createForm(ReceiptsType::class, $receipts, ['csrf_protection' => false]);
         if ($form->handleRequest($request)->isValid()) {
             var_dump($receipts);
