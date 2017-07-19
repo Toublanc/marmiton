@@ -41,19 +41,19 @@ class Receipts
     private $typeCooking;
 
     /**
-     * @ORM\OneToMany(targetEntity="Stage", mappedBy="Receipts", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Stage", mappedBy="receipts", cascade={"persist"})
      * @var Stage[]
      */
     private $stage;
 
     /**
-     * @ORM\OneToMany(targetEntity="Ingredients", mappedBy="Receipts", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Ingredients", mappedBy="receipts", cascade={"persist"})
      * @var Ingredients[]
      */
     private $ingredients;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="Receipts")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="receipts")
      * @var User
      */
     protected $user;

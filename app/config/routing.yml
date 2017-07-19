@@ -30,6 +30,6 @@ fos_user_profile:
 
 new_receipt:
     path: /new_receipt
-    defaults:
-        _controller: AppBundle:Receipts:add
+    defaults: { _controller: AppBundle:Receipts:add }
+
 
