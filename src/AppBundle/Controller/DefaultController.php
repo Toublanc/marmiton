@@ -14,7 +14,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $limit = 0;
+        $limit = 3;
         $receipts = $this->get('doctrine.orm.entity_manager')
             ->getRepository(Receipts::class)->getReceipts($limit);
         //var_dump($receipts);

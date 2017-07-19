@@ -16,9 +16,9 @@ class ReceiptsController extends Controller
     {
         $receipts = new Receipts();
         if ($request->getMethod() === "GET") {
-            $receipts = $this->get('doctrine.orm.entity_manager')
-                ->getRepository('AppBundle:Receipts')
-                ->find($request->get('id'));
+            // $receipts = $this->get('doctrine.orm.entity_manager')
+            //     ->getRepository('AppBundle:Receipts')
+            //     ->find($request->get('id'));
         }
         $form = $this->createForm(ReceiptsType::class, $receipts, ['csrf_protection' => false]);
         if ($form->handleRequest($request)->isValid()) {
