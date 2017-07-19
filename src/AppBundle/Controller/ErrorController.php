@@ -20,6 +20,9 @@ class ReceiptsController extends Controller
                 ->getRepository('AppBundle:Receipts')
                 ->find($request->get('id'));
         }
+        if ($receipts->getUser()->getId() != $this->getUser()->getId()) {
+            return $this->redirect($this->generateUrl('404'));
+        }
         $form = $this->createForm(ReceiptsType::class, $receipts, ['csrf_protection' => false]);
         if ($form->handleRequest($request)->isValid()) {
             var_dump($receipts);

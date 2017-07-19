@@ -452,7 +452,6 @@ table tbody input {
 .loginBtn--google:hover,
 .loginBtn--google:focus {
   background: #E74B37;
-<<<<<<< HEAD
 }
 
 .user-row {
@@ -484,11 +483,14 @@ table tbody input {
 
 .table-user-information > tbody > tr > td {
     border-top: 0;
-||||||| parent of 8ccf8d9... ADDED form
-=======
+
 }
 
 .line-ingredients {
     margin: 5px;
->>>>>>> 8ccf8d9... ADDED form
 }
+
+table > thead > tr > th {
+    color : #333;
+}
+
