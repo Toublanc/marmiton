@@ -54,18 +54,24 @@
                     <div class="ingredients">
                         {{ 'receipt.ingredients' |trans({}, 'FOSUserBundle') }}
                         <div class="row line-ingredients">
-                            {% for ingredient in form.ingredients %}
-                            <div class="col-md-5">
-                                {{ form_errors(ingredient.qte) }}
-                                {{ form_widget(ingredient.qte, { attr: { class: 'form-control', 'placeholder': quantityplaceholder}}) }}
-                            </div>
-                            <div class="col-md-5">
-                                {{ form_errors(ingredient.name) }}
-                                {{ form_widget(ingredient.name, { attr: { class: 'form-control', 'placeholder': 'Nom de l\'entité' }}) }}
-                            </div>
-                            {% endfor %}
+                            <ul class="tags" data-prototype="{{ form_widget(form.ingredients.vars.prototype)|e('html_attr') }}">
+                                {# iterate over each existing tag and render its only field: name #}
+                                {% for ingredients in form.ingredients %}
+                                    <li>{{ form_row(ingredients.qte) }}</li>
+                                {% endfor %}
+                            </ul>
+                            {#{% for ingredient in form.ingredients %}#}
+                            {#<div class="col-md-5">#}
+                                {#{{ form_errors(ingredient.qte) }}#}
+                                {#{{ form_widget(ingredient.qte, { attr: { class: 'form-control', 'placeholder': quantityplaceholder}}) }}#}
+                            {#</div>#}
+                            {#<div class="col-md-5">#}
+                                {#{{ form_errors(ingredient.name) }}#}
+                                {#{{ form_widget(ingredient.name, { attr: { class: 'form-control', 'placeholder': 'Nom de l\'entité' }}) }}#}
+                            {#</div>#}
+                            {#{% endfor %}#}
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-default" onclick="addIngredient($(this))">+</button>
+                                <button type="button" class="btn btn-default" id="add_tag_link">+</button>
                             </div>
                         </div>
                     </div>

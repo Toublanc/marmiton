@@ -14,8 +14,6 @@ class ReceiptsController extends Controller
     public function addAction(Request $request)
     {
         $receipts = new Receipts();
-        $receipts->addIngredient(new Ingredients());
-        $receipts->addStage(new Stage());
         $form = $this->createForm(ReceiptsType::class, $receipts, ['csrf_protection' => false]);
         if ($form->handleRequest($request)->isValid()) {
             var_dump($receipts);
