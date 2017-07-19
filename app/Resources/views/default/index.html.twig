@@ -3,11 +3,7 @@
 {% block body %}
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-
-        <!-- Wrapper for slides -->
         <div class="carousel-inner">
-
             <div class="item active">
                 <img src="{{ asset('img/plat1.jpg') }}">
                 <div class="carousel-caption" style="top:200px;width:40%;margin: auto;">
@@ -19,18 +15,18 @@
                                     <button class="btn btn-info btn-lg" type="button">
                                         <i class="glyphicon glyphicon-search"></i>
                                     </button>
-                                </span>
+                            </span>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-<?php
         </div>
     </div>
-
-   
-
+    {% for receipt in receipts %}
+        {{ receipt.id }}
+        {{ receipt.name }}
+    {% endfor %}
 
 
 {% endblock %}

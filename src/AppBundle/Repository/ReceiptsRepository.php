@@ -1,6 +1,9 @@
 <?php
 
 namespace AppBundle\Repository;
+use \AppBundle\Entity\Users;
+use \AppBundle\Entity\Events;
+use \AppBundle\Entity\Booking;
 
 /**
  * StageRepository
@@ -15,7 +18,8 @@ class ReceiptsRepository extends \Doctrine\ORM\EntityRepository
         $qb = $this->getEntityManager()
             ->createQueryBuilder()
             ->select("r")
-            ->from('AppBundle:Receipts', 'r');
+            ->from('AppBundle:Receipts', 'r')
+            ->orderBy('r.createAt', 'ASC');
         if ($limit != "") {
             $qb->setMaxResults($limit);
         } else {
