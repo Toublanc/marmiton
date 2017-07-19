@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+{% set quantityplaceholder = 'receipt.quantity'|trans({}, 'FOSUserBundle') %}
+{% block body %}
+    <div id="wrapper">
+        <div class="container">
+            <div class="form-group">
+                {{ 'receipt.name' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.name }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.dishes' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.typeDishes.name }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.is_veg' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.isVeg }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.level' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.levelId }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.price' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.price }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.time' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.name }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.time_cooking' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.name }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.type' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.name }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.qte' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.name }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.type' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.name }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.qte' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.name }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.type' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.name }}
+            </div>
+            <div class="form-group">
+                {{ 'receipt.qte' |trans({}, 'FOSUserBundle') }}
+                {{ receipt.name }}
+            </div>
+
+            <input class="btn btn-default" type="submit" value="Valider">
+        </div>
+    </div>
+{% endblock body %}

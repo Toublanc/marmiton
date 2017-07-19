@@ -123,4 +123,14 @@ class Ingredients
     {
         return $this->receipts;
     }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getIngredients()
+    {
+        return $this->name;
+    }
 }
