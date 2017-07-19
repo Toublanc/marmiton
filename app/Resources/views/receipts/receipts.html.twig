@@ -21,7 +21,7 @@
                     <td>{{ receipt.typeDishes.name }}</td>
                     <td>{{ receipt.typeCooking.name }}</td>
                     <td>{{ receipt.levelId }}</td>
-                    <td><a href="{{ path("new_receipt", { 'id': receipt.id }) }}">editer</a></td>
+                    <td><a href="{{ path("new_receipt", { 'id': receipt.id }) }}">editer</a><a href="{{ path("read_receipt", { 'id': receipt.id }) }}">voir</a></td>
                 </tr>
             {% endfor %}
             </tbody>
