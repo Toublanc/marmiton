@@ -19,9 +19,9 @@ class ReceiptsController extends Controller
             $receipts = $this->get('doctrine.orm.entity_manager')
                 ->getRepository('AppBundle:Receipts')
                 ->find($request->get('id'));
-        }
-        if ($receipts->getUser()->getId() != $this->getUser()->getId()) {
-            return $this->redirect($this->generateUrl('error'));
+            if ($receipts->getUser()->getId() != $this->getUser()->getId()) {
+                return $this->redirect($this->generateUrl('error'));
+            }
         }
         $form = $this->createForm(ReceiptsType::class, $receipts, ['csrf_protection' => false]);
         if ($form->handleRequest($request)->isValid()) {
