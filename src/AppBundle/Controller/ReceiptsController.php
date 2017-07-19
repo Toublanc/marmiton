@@ -8,6 +8,7 @@ use AppBundle\Entity\Receipts;
 use AppBundle\Form\Type\ReceiptsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class ReceiptsController extends Controller
 {
@@ -18,6 +19,7 @@ class ReceiptsController extends Controller
         if ($form->handleRequest($request)->isValid()) {
             var_dump($receipts);
             $em = $this->get('doctrine.orm.entity_manager');
+            $receipts->setCreateAt(new \DateTime());
             foreach ($receipts->getIngredients() as $ingredient) {
                 $ingredient->setReceipts($receipts);
                 $em->persist($ingredient);

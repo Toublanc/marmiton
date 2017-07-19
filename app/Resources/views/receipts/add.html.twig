@@ -54,24 +54,10 @@
                     <div class="ingredients">
                         {{ 'receipt.ingredients' |trans({}, 'FOSUserBundle') }}
                         <div class="row line-ingredients">
-                            <ul class="tags" data-prototype="{{ form_widget(form.ingredients.vars.prototype)|e('html_attr') }}">
-                                {# iterate over each existing tag and render its only field: name #}
-                                {% for ingredients in form.ingredients %}
-                                    <li>{{ form_row(ingredients.qte) }}</li>
-                                {% endfor %}
+                            <ul class="ingredients" data-prototype="{{ form_widget(form.ingredients.vars.prototype)|e('html_attr') }}">
                             </ul>
-                            {#{% for ingredient in form.ingredients %}#}
-                            {#<div class="col-md-5">#}
-                                {#{{ form_errors(ingredient.qte) }}#}
-                                {#{{ form_widget(ingredient.qte, { attr: { class: 'form-control', 'placeholder': quantityplaceholder}}) }}#}
-                            {#</div>#}
-                            {#<div class="col-md-5">#}
-                                {#{{ form_errors(ingredient.name) }}#}
-                                {#{{ form_widget(ingredient.name, { attr: { class: 'form-control', 'placeholder': 'Nom de l\'entité' }}) }}#}
-                            {#</div>#}
-                            {#{% endfor %}#}
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-default" id="add_tag_link">+</button>
+                                <button type="button" class="btn btn-default" id="add_ingredient_link">+</button>
                             </div>
                         </div>
                     </div>
@@ -79,15 +65,11 @@
                 <div class="form-group">
                     <div class="stage">
                         {{ 'receipt.stage' |trans({}, 'FOSUserBundle') }}
-                        <div class="row line-ingredients">
-                            {% for stage in form.stage %}
-                            <div class="col-md-10">
-                                {{ form_errors(stage.details) }}
-                                {{ form_widget(stage.details, { attr: { class: 'form-control', 'placeholder': quantityplaceholder} }) }}
-                            </div>
-                            {% endfor %}
+                        <div class="row line-stage">
+                            <ul class="stage" data-prototype="{{ form_widget(form.stage.vars.prototype)|e('html_attr') }}">
+                            </ul>
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-default" onclick="addStage($(this))">+</button>
+                                <button type="button" class="btn btn-default" id="add_stage_link">+</button>
                             </div>
                         </div>
                     </div>
