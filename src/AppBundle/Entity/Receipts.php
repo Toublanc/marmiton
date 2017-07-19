@@ -32,7 +32,7 @@ class Receipts
      * @ORM\OneToOne(targetEntity="Type_dishes")
      * @var Type_dishes
      */
-    private $typeDishesId;
+    public $typeDishes;
 
     /**
      * @ORM\OneToOne(targetEntity="Type_cooking")
@@ -41,13 +41,13 @@ class Receipts
     private $typeCooking;
 
     /**
-     * @ORM\OneToMany(targetEntity="Stage", mappedBy="Receipts")
+     * @ORM\OneToMany(targetEntity="Stage", mappedBy="Receipts", cascade={"persist"})
      * @var Stage[]
      */
     private $stage;
 
     /**
-     * @ORM\OneToMany(targetEntity="Ingredients", mappedBy="Receipts")
+     * @ORM\OneToMany(targetEntity="Ingredients", mappedBy="Receipts", cascade={"persist"})
      * @var Ingredients[]
      */
     private $ingredients;
@@ -82,23 +82,16 @@ class Receipts
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="prepare_time", type="datetime")
+     * @ORM\Column(name="prepare_time", type="integer")
      */
     private $prepareTime;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="cooking_time", type="datetime")
+     * @ORM\Column(name="cooking_time", type="integer")
      */
     private $cookingTime;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="cooking_type", type="integer")
-     */
-    private $cookingType;
 
     /**
      * @var int
@@ -135,6 +128,7 @@ class Receipts
     {
         $this->stage = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->typeDishes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -161,7 +155,7 @@ class Receipts
         return $this;
     }
 
-    /**
+    /**t
      * Get name
      *
      * @return string
@@ -414,13 +408,13 @@ class Receipts
     /**
      * Set typeDishesId
      *
-     * @param \AppBundle\Entity\Type_dishes $typeDishesId
+     * @param \AppBundle\Entity\Type_dishes $typeDishes
      *
      * @return Receipts
      */
-    public function setTypeDishesId(\AppBundle\Entity\Type_dishes $typeDishesId = null)
+    public function setTypeDishes(\AppBundle\Entity\Type_dishes $typeDishes = null)
     {
-        $this->typeDishesId = $typeDishesId;
+        $this->typeDishes = $typeDishes;
 
         return $this;
     }
@@ -430,9 +424,9 @@ class Receipts
      *
      * @return \AppBundle\Entity\Type_dishes
      */
-    public function getTypeDishesId()
+    public function getTypeDishes()
     {
-        return $this->typeDishesId;
+        return $this->typeDishes;
     }
 
     /**
@@ -550,4 +544,6 @@ class Receipts
     {
         return $this->user;
     }
+
+
 }

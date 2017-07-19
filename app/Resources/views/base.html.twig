@@ -22,10 +22,10 @@
                     </a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="#">{{ 'nav-bar.home' |trans({}, 'FOSUserBundle') }}</a></li>
+                    <li><a href="{{ path("homepage") }}">{{ 'nav-bar.home' |trans({}, 'FOSUserBundle') }}</a></li>
                     <li><a href="#">{{ 'nav-bar.recipe' |trans({}, 'FOSUserBundle') }}</a></li>
                     <li><a href="#">{{ 'nav-bar.news' |trans({}, 'FOSUserBundle') }}</a></li>
-                    <li><a href="{{ path('fos_user_profile_edit') }}">{{ 'nav-bar.profil' |trans({}, 'FOSUserBundle') }}</a></li>
+                    <li><a href="{{ path('fos_user_profile_show') }}">{{ 'nav-bar.profile' |trans({}, 'FOSUserBundle') }}</a></li>
                  </ul>
                 <div class="nav navbar-nav navbar-right">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -49,9 +49,8 @@
             </div>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-
-        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="{{ asset('js/javascript.js') }}"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
 
         </script>﻿

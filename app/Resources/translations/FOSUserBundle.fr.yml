@@ -22,6 +22,8 @@ profile:
         choice: Votre langue
         language1 : Français
         language2 : Anglais
+        subtitle : Profile
+        title : Information utilisateur
     edit:
         submit: 'Mettre à jour'
     flash:
@@ -77,8 +79,7 @@ nav-bar:
     home : 'Acceuil'
     recipe: 'Recette'
     news: 'Actualité'
-    profil: 'Profil'
-
+    profile: 'Profil'
 
 layout:
     logout: Déconnexion
@@ -99,3 +100,20 @@ network:
     facebook : "Connexion avec Facebook"
     google : "Connexion avec Google"
 
+receipt:
+    is_veig : "Végétarien"
+    name :  "Nom"
+    dishes : "Type de plats"
+    level : "Difficulté"
+    price : "Catégorie de prix"
+    time : "Temps de préparation"
+    time_cooking : "Temps de cuisson"
+    ingredients : "Ingérients"
+    quantity : "Quantité"
+    validate : "Valider"
+    type : "Type de cuisine"
+    qte : 'Quantité pour'
+    drink : "Boisson"
+    details : "Détails"
+    stage : "Etape"
+    name_receipt : "Nom de la recette"

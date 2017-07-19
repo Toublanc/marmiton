@@ -1,0 +1,103 @@
+{% extends '::base.html.twig' %}
+{% set quantityplaceholder = 'receipt.quantity'|trans({}, 'FOSUserBundle') %}
+{% block body %}
+    <div id="wrapper">
+        <div class="container">
+
+            <form role="form" action="{{ path('new_receipt') }}" method="post">
+                <div class="form-group">
+                    {{ 'receipt.name' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.name) }}
+                    {{ form_widget(form.name, { attr: { class: 'form-control', 'placeholder': 'receipt.name_receipt'|trans({}, 'FOSUserBundle')} }) }}
+                </div>
+                <div class="form-group">
+                    {{ 'receipt.dishes' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.Type_dishes) }}
+                    {{ form_widget(form.Type_dishes, { attr: { class: 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ 'receipt.is_veg' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.is_veg) }}
+                    {{ form_widget(form.is_veg, { attr: {}}) }}
+                </div>
+                <div class="form-group">
+                    {{ 'receipt.level' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.levelId) }}
+                    {{ form_widget(form.levelId, { attr: { class: 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ 'receipt.price' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.priceTypeId) }}
+                    {{ form_widget(form.priceTypeId, { attr: { class: 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ 'receipt.time' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.prepareTime) }}
+                    {{ form_widget(form.prepareTime, { attr: { class: 'form-control', 'placeholder': 'xxx minutes' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ 'receipt.time_cooking' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.cookingTime) }}
+                    {{ form_widget(form.cookingTime, { attr: { class: 'form-control', 'placeholder': 'xxx minutes' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ 'receipt.type' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.type_cooking) }}
+                    {{ form_widget(form.type_cooking, { attr: { class: 'form-control' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ 'receipt.qte' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.qte) }}
+                    {{ form_widget(form.qte, { attr: { class: 'form-control' , 'placeholder': 'x personnes' }}) }}
+                </div>
+                <div class="form-group">
+                    <div class="ingredients">
+                        {{ 'receipt.ingredients' |trans({}, 'FOSUserBundle') }}
+                        <div class="row line-ingredients">
+                            {% for ingredient in form.ingredients %}
+                            <div class="col-md-5">
+                                {{ form_errors(ingredient.qte) }}
+                                {{ form_widget(ingredient.qte, { attr: { class: 'form-control', 'placeholder': quantityplaceholder}}) }}
+                            </div>
+                            <div class="col-md-5">
+                                {{ form_errors(ingredient.name) }}
+                                {{ form_widget(ingredient.name, { attr: { class: 'form-control', 'placeholder': 'Nom de l\'entité' }}) }}
+                            </div>
+                            {% endfor %}
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-default" onclick="addIngredient($(this))">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="stage">
+                        {{ 'receipt.stage' |trans({}, 'FOSUserBundle') }}
+                        <div class="row line-ingredients">
+                            {% for stage in form.stage %}
+                            <div class="col-md-10">
+                                {{ form_errors(stage.details) }}
+                                {{ form_widget(stage.details, { attr: { class: 'form-control', 'placeholder': quantityplaceholder} }) }}
+                            </div>
+                            {% endfor %}
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-default" onclick="addStage($(this))">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ 'receipt.drink' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.drink) }}
+                    {{ form_widget(form.drink, { attr: { class: 'form-control', 'placeholder': 'Boisson pour accompagner' }}) }}
+                </div>
+                <div class="form-group">
+                    {{ 'receipt.details' |trans({}, 'FOSUserBundle') }}
+                    {{ form_errors(form.details) }}
+                    {{ form_widget(form.details, { attr: { class: 'form-control', 'placeholder': 'Remarque' }}) }}
+                </div>
+                <input class="btn btn-default" type="submit" value="Valider">
+            </form>
+        </div>
+    </div>
+{% endblock body %}

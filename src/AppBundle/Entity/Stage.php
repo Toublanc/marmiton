@@ -92,4 +92,14 @@ class Stage
     {
         return $this->receipts;
     }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getStage()
+    {
+        return $this->details;
+    }
 }
