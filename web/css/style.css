@@ -59,6 +59,26 @@ font-style: italic;
 	letter-spacing: 2px;
 			}
 
+    	.row{
+		    margin-top:40px;
+            padding: 0 10px;
+            align-content: center;
+		}
+		.clickable{
+		    cursor: pointer;   
+		}
+
+		.panel-heading div {
+			margin-top: -18px;
+			font-size: 15px;
+		}
+		.panel-heading div span{
+			margin-left:5px;
+		}
+		.panel-body{
+			display: none;
+		}
+            
 .profile-info a {
 	 color: #4CB493;
 		}
