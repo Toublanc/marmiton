@@ -126,6 +126,7 @@ receipt:
     non : "non"
     personne : "personnes"
     minutes : "minutes"
+    news : "Les nouveautées"
 
 footer :
     social_network : "Réseau Social"

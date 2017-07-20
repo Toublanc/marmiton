@@ -5,6 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
 
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
         <style>
             #message_notice { font-weight: 500; text-align: center; }
         </style>
@@ -24,7 +25,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ path("homepage") }}">{{ 'nav-bar.home' |trans({}, 'FOSUserBundle') }}</a></li>
                     <li><a href="{{ path("receipt") }}">{{ 'nav-bar.recipe' |trans({}, 'FOSUserBundle') }}</a></li>
-                    <li><a href="#">{{ 'nav-bar.news' |trans({}, 'FOSUserBundle') }}</a></li>
+                    <li><a  href="{{ path("new") }}">{{ 'nav-bar.news' |trans({}, 'FOSUserBundle') }}</a></li>
                     <li><a href="{{ path('fos_user_profile_show') }}">{{ 'nav-bar.profile' |trans({}, 'FOSUserBundle') }}</a></li>
                  </ul>
                 <div class="nav navbar-nav navbar-right">
@@ -91,6 +92,7 @@
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js" ></script>
     <script src="{{ asset('js/javascript.js') }}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>﻿
 </html>

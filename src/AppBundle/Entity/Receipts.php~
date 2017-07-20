@@ -29,31 +29,31 @@ class Receipts
     private $name;
 
     /**
-     * @ORM\OneToOne(targetEntity="Type_dishes")
+     * @ORM\ManyToOne(targetEntity="Type_dishes", inversedBy="receipts")
      * @var Type_dishes
      */
     public $typeDishes;
 
     /**
-     * @ORM\OneToOne(targetEntity="Type_cooking")
+     * @ORM\ManyToOne(targetEntity="Type_cooking", inversedBy="receipts")
      * @var Type_cooking
      */
     private $typeCooking;
 
     /**
-     * @ORM\OneToMany(targetEntity="Stage", mappedBy="Receipts", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Stage", mappedBy="receipts", cascade={"persist"})
      * @var Stage[]
      */
     private $stage;
 
     /**
-     * @ORM\OneToMany(targetEntity="Ingredients", mappedBy="Receipts", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Ingredients", mappedBy="receipts", cascade={"persist"})
      * @var Ingredients[]
      */
     private $ingredients;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="Receipts")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="receipts")
      * @var User
      */
     protected $user;
@@ -128,6 +128,7 @@ class Receipts
      */
     private $createAt;
 
+
     /**
      * Constructor
      */
@@ -135,7 +136,6 @@ class Receipts
     {
         $this->stage = new \Doctrine\Common\Collections\ArrayCollection();
         $this->ingredients = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->typeDishes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -162,7 +162,7 @@ class Receipts
         return $this;
     }
 
-    /**t
+    /**
      * Get name
      *
      * @return string
@@ -247,7 +247,7 @@ class Receipts
     /**
      * Set prepareTime
      *
-     * @param \DateTime $prepareTime
+     * @param integer $prepareTime
      *
      * @return Receipts
      */
@@ -261,7 +261,7 @@ class Receipts
     /**
      * Get prepareTime
      *
-     * @return \DateTime
+     * @return integer
      */
     public function getPrepareTime()
     {
@@ -271,7 +271,7 @@ class Receipts
     /**
      * Set cookingTime
      *
-     * @param \DateTime $cookingTime
+     * @param integer $cookingTime
      *
      * @return Receipts
      */
@@ -285,35 +285,11 @@ class Receipts
     /**
      * Get cookingTime
      *
-     * @return \DateTime
+     * @return integer
      */
     public function getCookingTime()
     {
         return $this->cookingTime;
-    }
-
-    /**
-     * Set cookingType
-     *
-     * @param integer $cookingType
-     *
-     * @return Receipts
-     */
-    public function setCookingType($cookingType)
-    {
-        $this->cookingType = $cookingType;
-
-        return $this;
-    }
-
-    /**
-     * Get cookingType
-     *
-     * @return integer
-     */
-    public function getCookingType()
-    {
-        return $this->cookingType;
     }
 
     /**
@@ -413,7 +389,31 @@ class Receipts
     }
 
     /**
-     * Set typeDishesId
+     * Set createAt
+     *
+     * @param \DateTime $createAt
+     *
+     * @return Receipts
+     */
+    public function setCreateAt($createAt)
+    {
+        $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createAt
+     *
+     * @return \DateTime
+     */
+    public function getCreateAt()
+    {
+        return $this->createAt;
+    }
+
+    /**
+     * Set typeDishes
      *
      * @param \AppBundle\Entity\Type_dishes $typeDishes
      *
@@ -427,7 +427,7 @@ class Receipts
     }
 
     /**
-     * Get typeDishesId
+     * Get typeDishes
      *
      * @return \AppBundle\Entity\Type_dishes
      */
@@ -551,6 +551,4 @@ class Receipts
     {
         return $this->user;
     }
-
-
 }

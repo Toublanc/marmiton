@@ -28,11 +28,26 @@ class Type_dishes
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Receipts", mappedBy="typeDishes")
+     * @var Receipts[]
+     */
+    private $receipts;
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->receipts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -64,12 +79,36 @@ class Type_dishes
     }
 
     /**
-     * Get name
+     * Add receipt
      *
-     * @return string
+     * @param \AppBundle\Entity\Receipts $receipt
+     *
+     * @return Type_dishes
      */
-    public function getTypeDishes()
+    public function addReceipt(\AppBundle\Entity\Receipts $receipt)
     {
-        return $this->name;
+        $this->receipts[] = $receipt;
+
+        return $this;
+    }
+
+    /**
+     * Remove receipt
+     *
+     * @param \AppBundle\Entity\Receipts $receipt
+     */
+    public function removeReceipt(\AppBundle\Entity\Receipts $receipt)
+    {
+        $this->receipts->removeElement($receipt);
+    }
+
+    /**
+     * Get receipts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReceipts()
+    {
+        return $this->receipts;
     }
 }

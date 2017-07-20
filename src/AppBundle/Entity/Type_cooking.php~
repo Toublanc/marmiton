@@ -28,38 +28,10 @@ class Type_cooking
      */
     private $name;
 
-
     /**
-     * Get id
-     *
-     * @return int
+     * @ORM\OneToMany(targetEntity="Receipts", mappedBy="typeCooking")
+     * @var Receipts[]
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $receipts;
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Type_cooking
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 }

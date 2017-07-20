@@ -1,5 +1,4 @@
 {% extends '::base.html.twig' %}
-{% set enter_receiptplaceholder = 'receipt.enter_receipt'|trans({}, 'FOSUserBundle') %}
 {% block body %}
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -10,7 +9,9 @@
                     <form class="form-group">
                         <div id="custom-search-input">
                             <div class="input-group col-md-12">
-                                <input type="text" class="form-control input-lg" placeholder= "enter_receiptplaceholder">
+
+                                <input type="text" class="form-control input-lg" id="search-receipts" placeholder= "enter_receiptplaceholder">
+
                                 <span class="input-group-btn">
                                     <button class="btn btn-info btn-lg" type="button">
                                         <i class="glyphicon glyphicon-search"></i>

@@ -45,7 +45,7 @@ class Ingredients
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -122,15 +122,5 @@ class Ingredients
     public function getReceipts()
     {
         return $this->receipts;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getIngredients()
-    {
-        return $this->name;
     }
 }

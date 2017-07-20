@@ -28,38 +28,12 @@ class Type_dishes
      */
     private $name;
 
-
     /**
-     * Get id
-     *
-     * @return int
+     * @ORM\OneToMany(targetEntity="Receipts", mappedBy="typeDishes")
+     * @var Receipts[]
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $receipts;
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Type_dishes
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
 
-        return $this;
-    }
 
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 }
