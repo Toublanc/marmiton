@@ -111,4 +111,14 @@ class Type_dishes
     {
         return $this->receipts;
     }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getTypeDishes()
+    {
+        return $this->name;
+    }
 }
