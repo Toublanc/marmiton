@@ -126,3 +126,14 @@ receipt:
     details : "Details"
     stage : "Stage"
     name_receipt : "Name of receipt"
+    create_by: "Create by"
+    enter_receipt : "Enter a receipt"
+    title : "Our 3 last receipt"
+    possibility : "Possibility"
+    create : "Create receipt"
+
+footer :
+    social_network : "Social Network"
+    link : "Link"
+    last : "Last receit"
+    contact : "Contact Us"

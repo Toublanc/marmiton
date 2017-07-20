@@ -1,16 +1,16 @@
 {% extends '::base.html.twig' %}
-
+{% set enter_receiptplaceholder = 'receipt.enter_receipt'|trans({}, 'FOSUserBundle') %}
 {% block body %}
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="item active">
-                <img src="{{ asset('img/plat1.jpg') }}">
+                <img src="{{ asset('img/plat1.jpg') }}" style="margin-bottom:20px">
                 <div class="carousel-caption" style="top:200px;width:40%;margin: auto;">
                     <form class="form-group">
                         <div id="custom-search-input">
                             <div class="input-group col-md-12">
-                                <input type="text" class="form-control input-lg" placeholder="Entrez une recette..."/>
+                                <input type="text" class="form-control input-lg" placeholder= "enter_receiptplaceholder">
                                 <span class="input-group-btn">
                                     <button class="btn btn-info btn-lg" type="button">
                                         <i class="glyphicon glyphicon-search"></i>
@@ -23,53 +23,32 @@
             </div>
         </div>
     </div>
+    <h1 style="    font-family: 'Lobster Two',Arial,sans-serif;">{{ 'receipt.title' |trans({}, 'FOSUserBundle') }}</h1>
     {% for receipt in receipts %}
         {# {{ receipt.image }} #}
         {# {{ receipt.price }} #}
-        <div class="container">
-	<div class="row">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster+Two" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-<div class="container">
-  <div class="row ">
-  {# <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- bootsnipp Circle Menu -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5715866801509976"
-     data-ad-slot="3922266447"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script> #}
-<br>
-<br>
-
+    <a href="{{ path("read_receipt", { 'id': receipt.id }) }}">
       <div>
-
-
-        <div class="col-md-4">
+        <div class="col-md-4" >
           <div class="profile-card text-center">
 
             <img class="img-responsive" src="https://images.unsplash.com/photo-1454678904372-2ca94103eca4?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925">
             <div class="profile-info">
-
-              <img class="profile-pic" src="https://pbs.twimg.com/profile_images/711000557742395396/jzm8hqwW.jpg">
-
-              <h2 class="hvr-underline-from-center">{{ receipt.name }}<span>{{ receipt.typeDishes.name }} / {{ receipt. }}</span></h2>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-              <a href="http://www.twitter.com/mike_youngg"><i class="fa fa-twitter fa-2x"></i></a>
-              <a href="mailto:michael_y@live.co.uk"><i class="fa fa-envelope-o fa-2x"></i></a>
-              <a href="http://www.linkedin.com"><i class="fa fa-linkedin fa-2x"></i></a>
+              <h2 class="hvr-underline-from-center">{{ receipt.name }}<span>{{ 'receipt.dishes' |trans({}, 'FOSUserBundle') }} : {{ receipt.typeDishes.name }}</span><span>{{ 'receipt.create_by' |trans({}, 'FOSUserBundle') }} : {{ receipt.user.username }}</span></h2>
+              <div class="text-style">{{ 'receipt.details' |trans({}, 'FOSUserBundle') }} : {{receipt.details}}</div>
             </div>
-
           </div>
     </div>
   </div>
 	</div>
-</div>
+
+</a>
     {% endfor %}
 
 
 {% endblock %}
+
 

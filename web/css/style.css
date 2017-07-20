@@ -2,12 +2,25 @@ body {
   background-color: #C0E5D9;
 }
 
-.container {
-  padding: 20px;
+h1 {
+	font-family: "Lobster Two";
+	font-size: 40px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+    line-height: 26.4px;
+    text-align: center;
+    font-style: italic;
+}
+
+.text-style {
+font-family: "Lobster Two";
+font-style: italic;
+
 }
 
 .profile-card {
-    background-color: #222222;
+    background-color: #6a9a9f;
   margin-bottom: 20px;
 			
 		}
@@ -42,7 +55,7 @@ body {
 .profile-info span {
 	display: block;
     font-size: 12px;
-    color: #4CB493;
+    color: #FFF;
 	letter-spacing: 2px;
 			}
 
@@ -78,6 +91,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow: hidden;
+  font-family: "Lobster Two";
+  font-style: italic;
+  font-size: 40px;
 }
 .hvr-underline-from-center:before {
   content: "";
@@ -188,6 +204,59 @@ nav.navbar {
     padding: 10px;
 }
 
+footer.nb-footer {
+background: #222;
+border-top: 4px solid #b78c33; }
+footer.nb-footer .about {
+margin: 0 auto;
+margin-top: 40px;
+max-width: 1170px;}
+footer.nb-footer .about p {
+font-size: 13px;
+color: #999;
+margin-top: 30px; }
+footer.nb-footer .about .social-media {
+margin-top: 15px; }
+footer.nb-footer .about .social-media ul li a {
+display: inline-block;
+width: 45px;
+height: 45px;
+line-height: 45px;
+border-radius: 50%;
+font-size: 16px;
+color: #b78c33;
+border: 1px solid rgba(255, 255, 255, 0.3); }
+footer.nb-footer .about .social-media ul li a:hover {
+background: #b78c33;
+color: #fff;
+border-color: #b78c33; }
+footer.nb-footer .footer-info-single {
+margin-top: 30px; }
+footer.nb-footer .footer-info-single .title {
+color: #aaa;
+text-transform: uppercase;
+font-size: 16px;
+border-left: 4px solid #b78c33;
+padding-left: 5px; }
+footer.nb-footer .footer-info-single ul li a {
+display: block;
+color: #aaa;
+padding: 2px 0; }
+footer.nb-footer .footer-info-single ul li a:hover {
+color: #b78c33; }
+footer.nb-footer .footer-info-single p {
+font-size: 13px;
+line-height: 20px;
+color: #aaa; }
+footer.nb-footer .copyright {
+margin-top: 15px;
+background: #111;
+padding: 7px 0;
+color: #999; }
+footer.nb-footer .copyright p {
+margin: 0;
+padding: 0; }
+
 .container-content {
     padding: 20px;
 }
@@ -205,6 +274,7 @@ nav.navbar {
     /*color: #fff;*/
     padding-left: 10px;
 }
+
 
 .warning-bg {
     background: #ffbb33 !important;
@@ -474,11 +544,7 @@ table tbody p {
     vertical-align: middle;
 }
 
-table tbody input {
-    border: none;
-    background-color: #f7f4f4;
-    color: #333;
-}
+
 
 .btn-select-data {
     float: right;
@@ -630,5 +696,5 @@ table > thead > tr > th {
 
 .table-user-information > tbody > tr > td {
     border-top: 0;
-
+ 
 }
