@@ -131,6 +131,10 @@ receipt:
     title : "Our 3 last receipt"
     possibility : "Possibility"
     create : "Create receipt"
+    oui : "oui"
+    non : "non"
+    personne : "people"
+    minutes : "minutes"
 
 footer :
     social_network : "Social Network"
