@@ -31,7 +31,6 @@ class ReceiptsController extends Controller
         }
         $form = $this->createForm(ReceiptsType::class, $receipts, ['csrf_protection' => false]);
         if ($form->handleRequest($request)->isValid()) {
-            var_dump($receipts);
             $em = $this->get('doctrine.orm.entity_manager');
             $receipts->setCreateAt(new \DateTime());
             $user = $this->getUser();

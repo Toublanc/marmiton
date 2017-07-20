@@ -127,6 +127,7 @@ receipt:
     personne : "personnes"
     minutes : "minutes"
     news : "Les nouveautées"
+    create2 : "Création le"
 
 footer :
     social_network : "Réseau Social"

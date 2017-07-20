@@ -38,8 +38,8 @@
 
             <img class="img-responsive" src"{{ receipt.picture }}">
             <div class="profile-info">
-              <h2 class="hvr-underline-from-center">{{ receipt.name }}<span>{{ 'receipt.dishes' |trans({}, 'FOSUserBundle') }} : {{ receipt.typeDishes.name }}</span><span>{{ 'receipt.create_by' |trans({}, 'FOSUserBundle') }} : {{ receipt.user.username }}</span></h2>
-              <div class="text-style">{{ 'receipt.details' |trans({}, 'FOSUserBundle') }} : {{receipt.details}}</div>
+                <h2 class="hvr-underline-from-center">{{ receipt.name }}<span>{{ 'receipt.dishes' |trans({}, 'FOSUserBundle') }} : {{ receipt.typeDishes.name }}</span><span>{{ 'receipt.create2' |trans({}, 'FOSUserBundle') }} {{ receipt.createAt.date }}</span></h2>
+            <div class="text-style">{{ 'receipt.details' |trans({}, 'FOSUserBundle') }} : {{receipt.details}}</div>
             </div>
           </div>
     </div>
