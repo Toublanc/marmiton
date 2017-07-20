@@ -28,6 +28,11 @@ class Type_cooking
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Receipts", mappedBy="typeCooking")
+     * @var Receipts[]
+     */
+    private $receipts;
 
     /**
      * Get id
@@ -71,5 +76,46 @@ class Type_cooking
     public function getTypeCooking()
     {
         return $this->name;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->receipts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add receipt
+     *
+     * @param \AppBundle\Entity\Receipts $receipt
+     *
+     * @return Type_cooking
+     */
+    public function addReceipt(\AppBundle\Entity\Receipts $receipt)
+    {
+        $this->receipts[] = $receipt;
+
+        return $this;
+    }
+
+    /**
+     * Remove receipt
+     *
+     * @param \AppBundle\Entity\Receipts $receipt
+     */
+    public function removeReceipt(\AppBundle\Entity\Receipts $receipt)
+    {
+        $this->receipts->removeElement($receipt);
+    }
+
+    /**
+     * Get receipts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReceipts()
+    {
+        return $this->receipts;
     }
 }

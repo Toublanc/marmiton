@@ -29,31 +29,31 @@ class Receipts
     private $name;
 
     /**
-     * @ORM\OneToOne(targetEntity="Type_dishes")
+     * @ORM\ManyToOne(targetEntity="Type_dishes", inversedBy="receipts")
      * @var Type_dishes
      */
     public $typeDishes;
 
     /**
-     * @ORM\OneToOne(targetEntity="Type_cooking")
+     * @ORM\ManyToOne(targetEntity="Type_cooking", inversedBy="receipts")
      * @var Type_cooking
      */
     private $typeCooking;
 
     /**
-     * @ORM\OneToMany(targetEntity="Stage", mappedBy="Receipts", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Stage", mappedBy="receipts", cascade={"persist"})
      * @var Stage[]
      */
     private $stage;
 
     /**
-     * @ORM\OneToMany(targetEntity="Ingredients", mappedBy="Receipts", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Ingredients", mappedBy="receipts", cascade={"persist"})
      * @var Ingredients[]
      */
     private $ingredients;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="Receipts")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="receipts")
      * @var User
      */
     protected $user;
@@ -553,4 +553,28 @@ class Receipts
     }
 
 
+
+    /**
+     * Set createAt
+     *
+     * @param \DateTime $createAt
+     *
+     * @return Receipts
+     */
+    public function setCreateAt($createAt)
+    {
+        $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createAt
+     *
+     * @return \DateTime
+     */
+    public function getCreateAt()
+    {
+        return $this->createAt;
+    }
 }

@@ -30,7 +30,7 @@ class User extends BaseUser
     protected $googleID;
 
     /**
-     * @ORM\OneToMany(targetEntity="Receipts", mappedBy="User")
+     * @ORM\OneToMany(targetEntity="Receipts", mappedBy="user")
      * @var Receipts[]
      */
     private $receipts;

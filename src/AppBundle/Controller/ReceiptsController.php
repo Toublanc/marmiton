@@ -19,7 +19,7 @@ class ReceiptsController extends Controller
             $receipts = $this->get('doctrine.orm.entity_manager')
                 ->getRepository('AppBundle:Receipts')
                 ->find($request->get('id'));
-            if ($receipts->getUser()->getId() != $this->getUser()->getId()) {
+            if ($receipts && ($receipts->getUser()->getId() != $this->getUser()->getId())) {
                 return $this->redirect($this->generateUrl('error'));
             }
         }

@@ -29,13 +29,13 @@ class Receipts
     private $name;
 
     /**
-     * @ORM\OneToOne(targetEntity="Type_dishes")
+     * @ORM\ManyToOne(targetEntity="Type_dishes", inversedBy="receipts")
      * @var Type_dishes
      */
     public $typeDishes;
 
     /**
-     * @ORM\OneToOne(targetEntity="Type_cooking")
+     * @ORM\ManyToOne(targetEntity="Type_cooking", inversedBy="receipts")
      * @var Type_cooking
      */
     private $typeCooking;
