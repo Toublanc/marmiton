@@ -35,4 +35,80 @@ class Type_dishes
     private $receipts;
 
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->receipts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Type_dishes
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Add receipt
+     *
+     * @param \AppBundle\Entity\Receipts $receipt
+     *
+     * @return Type_dishes
+     */
+    public function addReceipt(\AppBundle\Entity\Receipts $receipt)
+    {
+        $this->receipts[] = $receipt;
+
+        return $this;
+    }
+
+    /**
+     * Remove receipt
+     *
+     * @param \AppBundle\Entity\Receipts $receipt
+     */
+    public function removeReceipt(\AppBundle\Entity\Receipts $receipt)
+    {
+        $this->receipts->removeElement($receipt);
+    }
+
+    /**
+     * Get receipts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReceipts()
+    {
+        return $this->receipts;
+    }
 }
