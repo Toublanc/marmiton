@@ -6,6 +6,8 @@ use AppBundle\Entity\Ingredients;
 use AppBundle\Entity\Stage;
 use AppBundle\Entity\Receipts;
 use AppBundle\Form\Type\ReceiptsType;
+use Buzz\Message\Response;
+use JMS\Serializer\SerializerBuilder;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -83,21 +85,23 @@ class ReceiptsController extends Controller
 
     public function searchReceiptsAction(Request $request)
     {
+        $rslt = array();
+        $em = $this->getDoctrine()->getManager();
 
-        $encoders = array(new XmlEncoder(), new JsonEncoder());
-        $normalizers = array(new ObjectNormalizer());
+        $receipts = $em->getRepository('AppBundle:Receipts')->createQueryBuilder('r')
+            ->where('r.name LIKE :name')
+            ->setParameter('name', '%'.$request->get('name').'%')
+            ->getQuery()
+            ->getResult();
 
-        $serializer = new Serializer($normalizers, $encoders);
-
-
-        $receipts = new Receipts();
-        if ($request->getMethod() === "GET" && $request->get('name')) {
-            $receipts = $this->get('doctrine.orm.entity_manager')
-                ->getRepository('AppBundle:Receipts')
-                ->findAll();
+        foreach ($receipts as $receipt)
+        {
+            $rslt[] = ["name" => $receipt->getName(), "type" => $receipt->typeDishes->getName(), "id" => $receipt->getId()];
         }
 
+        $response = new JsonResponse();
+        $response->setData($rslt);
 
-        return $serializer->serialize($receipts, 'json');
+        return $response;
     }
 }

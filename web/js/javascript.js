@@ -5,20 +5,20 @@ var $addIngredientLink = $('#add_ingredient_link');
 var $addStageLink = $('#add_stage_link');
 var $divSearch = $('#search-receipts');
 
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
     // Get the ul that holds the collection of tags
     $collectionHolder = $('ul.ingredients');
     $collectionHolder2 = $('ul.stage');
 
     // add the "add a tag" anchor and li to the tags ul
-   // $collectionHolder.append($addIngredientLink);
+    // $collectionHolder.append($addIngredientLink);
 
     // count the current form inputs we have (e.g. 2), use that as the new
     // index when inserting a new item (e.g. 2)
     $collectionHolder.data('index', $collectionHolder.find(':input').length);
     $collectionHolder2.data('index2', $collectionHolder2.find(':input').length);
 
-    $addIngredientLink.on('click', function(e) {
+    $addIngredientLink.on('click', function (e) {
         // prevent the link from creating a "#" on the URL
         e.preventDefault();
 
@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
         addIngredientForm($collectionHolder, $addIngredientLink);
     });
 
-    $addStageLink.on('click', function(e) {
+    $addStageLink.on('click', function (e) {
         // prevent the link from creating a "#" on the URL
         e.preventDefault();
 
@@ -35,24 +35,23 @@ jQuery(document).ready(function() {
     });
 
     $('#search-receipts').autocomplete({
-        source : function(requete, reponse) {
+        source: function (requete, reponse) {
             $.ajax({
-                url : '/fr/search_receipt',
-                dataType : 'json',
-                data : {
-                    name : $('#search-receipts').val(),
-                    maxRows : 15
+                url: '/fr/search_receipt',
+                dataType: 'json',
+                data: {
+                    name: $('#search-receipts').val()
                 },
-                success : function(donnee){
-                    reponse($.map(donnee.receipts, function(objet){
-                        return objet.name + ', ' + objet.id;
+                success: function (donnee) {
+                    reponse($.map(donnee, function (objet) {
+                        return objet.id + '|' + objet.name + ' (' + objet.type + ')';
                     }));
                 }
             });
         },
-        minLength: 3,
-        select : function(event, ui){
-            alert('ok');
+        select: function (event, ui) {
+            var id = ui.item.label.split('|')[0];
+            window.location.href = "/fr/read_receipt?id=" + id;
         }
     });
 });
