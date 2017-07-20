@@ -34,11 +34,10 @@ class Stage
      */
     protected $receipts;
 
-
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -91,15 +90,5 @@ class Stage
     public function getReceipts()
     {
         return $this->receipts;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getStage()
-    {
-        return $this->details;
     }
 }

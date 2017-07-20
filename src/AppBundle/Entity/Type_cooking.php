@@ -35,9 +35,17 @@ class Type_cooking
     private $receipts;
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->receipts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -66,23 +74,6 @@ class Type_cooking
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getTypeCooking()
-    {
-        return $this->name;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->receipts = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

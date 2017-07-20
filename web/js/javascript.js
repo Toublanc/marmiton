@@ -3,6 +3,7 @@ var $collectionHolder;
 // setup an "add a tag" link
 var $addIngredientLink = $('#add_ingredient_link');
 var $addStageLink = $('#add_stage_link');
+var $divSearch = $('#search-receipts');
 
 jQuery(document).ready(function() {
     // Get the ul that holds the collection of tags
@@ -31,6 +32,28 @@ jQuery(document).ready(function() {
 
         // add a new tag form (see next code block)
         addStageForm($collectionHolder2, $addStageLink);
+    });
+
+    $('#search-receipts').autocomplete({
+        source : function(requete, reponse) {
+            $.ajax({
+                url : '/fr/search_receipt',
+                dataType : 'json',
+                data : {
+                    name : $('#search-receipts').val(),
+                    maxRows : 15
+                },
+                success : function(donnee){
+                    reponse($.map(donnee.receipts, function(objet){
+                        return objet.name + ', ' + objet.id;
+                    }));
+                }
+            });
+        },
+        minLength: 3,
+        select : function(event, ui){
+            alert('ok');
+        }
     });
 });
 

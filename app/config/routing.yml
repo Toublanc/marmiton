@@ -44,4 +44,12 @@ read_receipt:
     path: /read_receipt
     defaults: { _controller: AppBundle:Receipts:read }
 
+search_receipt:
+    path: /search_receipt
+    defaults: { _controller: AppBundle:Receipts:searchReceipts }
+
+new:
+    path: /new
+    defaults: { _controller: AppBundle:New:index }
+
 
