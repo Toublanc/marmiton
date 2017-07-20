@@ -3,15 +3,15 @@
 {% block body %}
 
     <div class="container" style="background-color: #fff;margin-top:80px">
-        <a href="{{ path("new_receipt") }}"><button type="button" class="btn btn-success">Créer une recette</button></a>
+        <a href="{{ path("new_receipt") }}"><button type="button" class="btn btn-success">{{ 'receipt.create' |trans({}, 'FOSUserBundle') }}</button></a>
         <table class="table">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Type de plats</th>
-                <th>Type de cuisson</th>
-                <th>Difficulté</th>
-                <th>Editer</th>
+                <th>{{ 'receipt.name' |trans({}, 'FOSUserBundle') }}</th>
+                <th>{{ 'receipt.dishes' |trans({}, 'FOSUserBundle') }}</th>
+                <th>{{ 'receipt.type' |trans({}, 'FOSUserBundle') }}</th>
+                <th>{{ 'receipt.level' |trans({}, 'FOSUserBundle') }}</th>
+                <th>{{ 'receipt.possibility' |trans({}, 'FOSUserBundle') }}</th>
             </tr>
             </thead>
             <tbody>

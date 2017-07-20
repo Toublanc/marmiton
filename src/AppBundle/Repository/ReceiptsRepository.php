@@ -20,6 +20,7 @@ class ReceiptsRepository extends \Doctrine\ORM\EntityRepository
             ->select("r")
             ->from('AppBundle:Receipts', 'r')
             ->orderBy('r.createAt', 'ASC');
+
         if ($limit != "") {
             $qb->setMaxResults($limit);
         } else {
@@ -27,4 +28,5 @@ class ReceiptsRepository extends \Doctrine\ORM\EntityRepository
         }
         return $qb->getQuery()->getResult();
     }
+
 }

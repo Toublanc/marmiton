@@ -101,9 +101,9 @@ network:
     google : "Connexion avec Google"
 
 receipt:
-    is_veig : "Végétarien"
+    isVeig : "Végétarien"
     name :  "Nom"
-    dishes : "Type de plats"
+    dishes : "Type de plat"
     level : "Difficulté"
     price : "Catégorie de prix"
     time : "Temps de préparation"
@@ -117,3 +117,14 @@ receipt:
     details : "Détails"
     stage : "Etape"
     name_receipt : "Nom de la recette"
+    create_by : "Créé par"
+    enter_receipt : "Entrer une recette"
+    title : "Nos 3 dernières recettes"
+    possibility : "Possibilité"
+    create : "Créer une recette"
+
+footer :
+    social_network : "Réseau Social"
+    link : "Lien"
+    last : "Dernière recette"
+    contact : "Contacter nous"

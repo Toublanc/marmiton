@@ -49,12 +49,59 @@
                 {% endblock %}
             </div>
         </div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="{{ asset('js/javascript.js') }}"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-
-        </script>﻿
         {% block javascripts %}{% endblock %}
     </body>
+    <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <footer class="nb-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-info-single">
+	                        <h2 class="title">{{ 'footer.social_network' |trans({}, 'FOSUserBundle') }}</h2>
+	                            <ul class="list-unstyled">
+		                            <li><a href="#" title=""><i class="fa fa-facebook"></i> Facebook</a></li>
+			                        <li><a href="#" title=""><i class="fa fa-twitter"></i> Twitter</a></li>
+			                        <li><a href="#" title=""><i class="fa fa-instagram"> Instagram</i></a></li>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-info-single">
+	                        <h2 class="title">{{ 'footer.link' |trans({}, 'FOSUserBundle') }}</h2>
+	                            <ul class="list-unstyled">
+                                    <li><a href="{{ path("homepage") }}"><i class="fa fa-angle-double-right"></i>{{ 'nav-bar.home' |trans({}, 'FOSUserBundle') }}</a></li>
+                                    <li><a href="{{ path("receipt") }}"><i class="fa fa-angle-double-right"></i>{{ 'nav-bar.recipe' |trans({}, 'FOSUserBundle') }}</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-double-right"></i>{{ 'nav-bar.news' |trans({}, 'FOSUserBundle') }}</a></li>
+                                    <li><a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-angle-double-right"></i>{{ 'nav-bar.profile' |trans({}, 'FOSUserBundle') }}</a></li>
+	                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-info-single">
+                            <h2 class="title">{{ 'footer.last' |trans({}, 'FOSUserBundle') }}</h2>
+                                <ul class="list-unstyled">
+                                {% for receipt in receipts %}
+                                    <li><a href="{{ path("read_receipt", { 'id': receipt.id }) }}"><i class="fa fa-angle-double-right"></i> {{ receipt.name }}</a></li>
+                                {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="footer-info-single">
+                            <h2 class="title">{{ 'footer.contact' |trans({}, 'FOSUserBundle') }}</h2>
+                            <p><i class ="fa fa-map-pin"></i> 7 Rue Maurice Grandcoing, 94200 Ivry-sur-Seine</p> 
+                            <p><i class ="fa fa-phone"></i> +33144080022</p> 
+                            <p><i class ="fa fa-envelope"></i> etna@contact.fr</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="{{ asset('js/javascript.js') }}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>﻿
 </html>
