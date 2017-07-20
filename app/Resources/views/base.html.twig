@@ -56,7 +56,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-4 col-sm-6">
                         <div class="footer-info-single">
 	                        <h2 class="title">{{ 'footer.social_network' |trans({}, 'FOSUserBundle') }}</h2>
 	                            <ul class="list-unstyled">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-4 col-sm-6">
                         <div class="footer-info-single">
 	                        <h2 class="title">{{ 'footer.link' |trans({}, 'FOSUserBundle') }}</h2>
 	                            <ul class="list-unstyled">
@@ -78,18 +78,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer-info-single">
-                            <h2 class="title">{{ 'footer.last' |trans({}, 'FOSUserBundle') }}</h2>
-                                <ul class="list-unstyled">
-                                {% for receipt in receipts %}
-                                    <li><a href="{{ path("read_receipt", { 'id': receipt.id }) }}"><i class="fa fa-angle-double-right"></i> {{ receipt.name }}</a></li>
-                                {% endfor %}
-                                </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-4 col-sm-6">
                         <div class="footer-info-single">
                             <h2 class="title">{{ 'footer.contact' |trans({}, 'FOSUserBundle') }}</h2>
                             <p><i class ="fa fa-map-pin"></i> 7 Rue Maurice Grandcoing, 94200 Ivry-sur-Seine</p> 
