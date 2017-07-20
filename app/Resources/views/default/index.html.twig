@@ -35,7 +35,7 @@
         <div class="col-md-4" >
           <div class="profile-card text-center">
 
-            <img class="img-responsive" src="https://images.unsplash.com/photo-1454678904372-2ca94103eca4?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925">
+            <img class="img-responsive" src"{{ receipt.picture }}">
             <div class="profile-info">
               <h2 class="hvr-underline-from-center">{{ receipt.name }}<span>{{ 'receipt.dishes' |trans({}, 'FOSUserBundle') }} : {{ receipt.typeDishes.name }}</span><span>{{ 'receipt.create_by' |trans({}, 'FOSUserBundle') }} : {{ receipt.user.username }}</span></h2>
               <div class="text-style">{{ 'receipt.details' |trans({}, 'FOSUserBundle') }} : {{receipt.details}}</div>
